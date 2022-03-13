@@ -32,11 +32,11 @@ export const PAGE_DATA: DynamicComponent[] = [
     },
 ];
 
-export const MAZUAY_PAGE_DATA: DynamicComponent[] = [
+export const FORM_PAGE_DATA: DynamicComponent[] = [
     {
-        type: 'informations/WarningMessage',
+        type: 'informations/Title',
         props: {
-            message: 'Mazuay data information'
+            title: 'Basic information for generate your page'
         }
     },
 
@@ -62,6 +62,13 @@ export const MAZUAY_PAGE_DATA: DynamicComponent[] = [
         props: {
             label: 'Lastname',
             type: 'text',
+        }
+    },
+
+    {
+        type: 'informations/WarningMessage',
+        props: {
+            message: 'Please fill all inputs using trust information, for contact you the correct form.'
         }
     },
 ];
