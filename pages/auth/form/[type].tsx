@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router';
 
-import { EmptyLayout } from '../../src/core/components/layouts'
-import { PAGE_DATA, PIN_FORM, RECOGNITION_FORM } from '../../data';
-import { getDynamicComponent } from '../../src/helpers';
+import { EmptyLayout } from '../../../src/core/components/layouts'
+import { CHANGE_PASSWORD, PAGE_NO_FORM, REGISTER_CREDENTIALS } from '../../../data';
+import { getDynamicComponent } from '../../../src/helpers';
 
 const Auth: NextPage = () => {
     const router = useRouter();
@@ -12,14 +12,13 @@ const Auth: NextPage = () => {
     const data = (
         () => {
             switch (type) {
-                case 'recognition':
-                    return RECOGNITION_FORM;
-
-                case 'pin':
-                    return PIN_FORM;
+                case 'register-credentials':
+                    return REGISTER_CREDENTIALS;
+                case 'change-password':
+                    return CHANGE_PASSWORD;
 
                 default:
-                    return PAGE_DATA;
+                    return PAGE_NO_FORM;
             }
         }
     )();

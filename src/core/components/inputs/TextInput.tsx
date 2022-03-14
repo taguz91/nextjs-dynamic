@@ -7,7 +7,8 @@ interface Props {
 
 type InputType =
     | 'text'
-    | 'number';
+    | 'number'
+    | 'password';
 
 export const TextInput: FC<Props> = ({ label, type }) => {
     return (

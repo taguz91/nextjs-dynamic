@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { EmptyLayout } from '../components/layouts'
+import { EmptyLayout } from '../src/core/components/layouts'
 
 
 const Home: NextPage = () => {
