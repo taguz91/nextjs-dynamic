@@ -20,7 +20,7 @@ export const Types = () => {
                     {TYPES_AUTH.map((authType, index) => {
                         return (
                             <Link href={authType.url} key={index}>
-                                <div className='p-4 cursor-pointer rounded-lg shadow-lg col-span-1'>
+                                <div className='p-4 cursor-pointer rounded-lg shadow-lg col-span-2 md:col-span-1'>
 
                                     <img style={{
                                         height: '75px',

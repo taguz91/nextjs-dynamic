@@ -3,8 +3,16 @@ import TextInput from '../../src/core/components/inputs/TextInput';
 import { EmptyLayout } from '../../src/core/components/layouts'
 import ImageTop from '../../src/core/components/ui/ImageTop';
 import RedirectButton from '../../src/core/components/actions/RedirectButton';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 export const TokenPage = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit: SubmitHandler<any> = data => console.log('Data', data);
+
+    console.log('Loaded pageeee!!!');
+
     return (
         <EmptyLayout title={'Home Page'} description={'Dynamic form generations'} classNames={'grid justify-items-center content-center'}>
 
@@ -22,7 +30,11 @@ export const TokenPage = () => {
                 </p>
             </div>
 
-            <TextInput label={'Ingresar token'} type={'number'} />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <TextInput register={register} errors={errors} name='token' label={'Ingresar token'} type={'number'} />
+
+                <input type="submit" />
+            </form>
 
             <RedirectButton label='Verificar' href='/auth/success' />
 

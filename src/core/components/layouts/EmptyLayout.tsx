@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { FC } from 'react'
+import { LoadingProvider } from '../../context/LoadingProvider'
 
 interface Props {
     title: string,
@@ -15,9 +16,11 @@ export const EmptyLayout: FC<Props> = ({ children, title, description, className
                 <meta name="description" content={description} />
             </Head>
 
-            <main className={`container p-4 h-screen mx-auto ${classNames}`}>
-                {children}
-            </main>
+            <LoadingProvider>
+                <main className={`container p-4 h-screen mx-auto ${classNames}`}>
+                    {children}
+                </main>
+            </LoadingProvider>
 
         </>
     )

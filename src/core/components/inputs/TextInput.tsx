@@ -1,8 +1,12 @@
 import { FC } from 'react';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 interface Props {
     label: string;
+    name: string;
     type: InputType,
+    register: UseFormRegister<any>,
+    errors: FieldErrors<any>,
 }
 
 type InputType =
@@ -10,7 +14,10 @@ type InputType =
     | 'number'
     | 'password';
 
-export const TextInput: FC<Props> = ({ label, type }) => {
+export const TextInput: FC<Props> = ({ errors, register, name, label, type }) => {
+
+    // console.log('FORM->', name, register, errors);
+
     return (
         <div className='my-2'>
             <label
@@ -21,6 +28,7 @@ export const TextInput: FC<Props> = ({ label, type }) => {
                 </span>
 
                 <input
+                    {...register(name)}
                     className='mt-1
                     block
                     w-full
@@ -33,6 +41,7 @@ export const TextInput: FC<Props> = ({ label, type }) => {
                     focus:ring-indigo-200 
                     focus:ring-opacity-50'
                     type={type} />
+
             </label>
         </div>
     )

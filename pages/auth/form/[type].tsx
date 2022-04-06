@@ -9,6 +9,8 @@ const Auth: NextPage = () => {
     const router = useRouter();
     const { type } = router.query;
 
+    console.log('LOADING');
+
     const data = (
         () => {
             switch (type) {

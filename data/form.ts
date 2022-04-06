@@ -54,12 +54,12 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
         }
     },
 
-
     {
         type: 'inputs/TextInput',
         props: {
             label: 'Email',
             type: 'text',
+            name: 'email'
         }
     },
 
@@ -68,6 +68,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
         props: {
             label: 'Name',
             type: 'text',
+            name: 'name'
         }
     },
 
@@ -76,6 +77,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
         props: {
             label: 'Lastname',
             type: 'text',
+            name: 'lastname'
         }
     },
 
@@ -84,6 +86,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
         props: {
             label: 'Direccion',
             type: 'text',
+            name: 'direccion'
         }
     },
 
@@ -107,7 +110,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
     {
         type: 'informations/Title',
         props: {
-            title: 'Para continuar el proceso llene los siguientes datos',
+            title: 'Para continuar ',
         }
     },
 
@@ -116,6 +119,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
         props: {
             label: 'Cedula',
             type: 'text',
+            name: 'cedula'
         }
     },
 
@@ -124,6 +128,26 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
         props: {
             label: 'Codigo dactilar',
             type: 'text',
+            name: 'codigoDactilar'
+        }
+    },
+
+    {
+        type: 'inputs/TextInput',
+        props: {
+            label: 'Codigo',
+            type: 'text',
+            name: 'codigo'
+        }
+    },
+
+
+    {
+        type: 'actions/RedirectButton',
+        props: {
+            label: 'Continuar',
+            // href: '/auth/form/register-credentials',
+            href: 'https://github.com/zendframework/zend-mime/blob/master/docs/book/message.md',
         }
     },
 
@@ -131,7 +155,8 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
-            href: '/auth/form/register-credentials',
+            // href: '/auth/form/register-credentials',
+            href: 'https://github.com/zendframework/zend-mime/blob/master/docs/book/message.md',
         }
     },
 ];
@@ -152,23 +177,63 @@ export const PIN_FORM: DynamicComponent[] = [
             title: 'Para continuar el proceso llene los siguientes datos',
         }
     },
+    // {
+    //     type: 'containers/FormContainer',
+    //     props: {
+    //         inputs: [
+    //             {
+    //                 type: 'inputs/TextInput',
+    //                 props: {
+    //                     label: 'Cedula',
+    //                     type: 'text',
+    //                     name: 'cedula',
+    //                 }
+    //             },
 
+    //             {
+    //                 type: 'inputs/TextInput',
+    //                 props: {
+    //                     label: 'Pin de tarjeta de credito',
+    //                     type: 'text',
+    //                     name: 'pin'
+    //                 }
+    //             },
+    //         ]
+    //     }
+    // },
+
+    // This use a loading component
     {
-        type: 'inputs/TextInput',
+        type: 'containers/LoadingContainer',
         props: {
-            label: 'Cedula',
-            type: 'text',
+            childrens: [
+                {
+                    type: 'containers/FormContainer',
+                    props: {
+                        inputs: [
+                            {
+                                type: 'inputs/TextInput',
+                                props: {
+                                    label: 'Cedula',
+                                    type: 'text',
+                                    name: 'cedula',
+                                }
+                            },
+
+                            {
+                                type: 'inputs/TextInput',
+                                props: {
+                                    label: 'Pin de tarjeta de credito',
+                                    type: 'text',
+                                    name: 'pin'
+                                }
+                            },
+                        ]
+                    }
+                },
+            ]
         }
     },
-
-    {
-        type: 'inputs/TextInput',
-        props: {
-            label: 'Pin de tarjeta de credito',
-            type: 'text',
-        }
-    },
-
     {
         type: 'actions/RedirectButton',
         props: {
@@ -196,29 +261,38 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
         }
     },
     {
-        type: 'inputs/TextInput',
+        type: 'containers/FormContainer',
         props: {
-            label: 'Usuario',
-            type: 'text',
+            inputs: <DynamicComponent[]>[
+                {
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Usuario',
+                        type: 'text',
+                        name: 'usuario'
+                    }
+                },
+
+                {
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Contrasena',
+                        type: 'password',
+                        name: 'password'
+                    }
+                },
+
+                {
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Repetir contrasena',
+                        type: 'password',
+                        name: 'repetPassword'
+                    }
+                },
+            ]
         }
     },
-
-    {
-        type: 'inputs/TextInput',
-        props: {
-            label: 'Contrasena',
-            type: 'password',
-        }
-    },
-
-    {
-        type: 'inputs/TextInput',
-        props: {
-            label: 'Repetir contrasena',
-            type: 'password',
-        }
-    },
-
     {
         type: 'actions/RedirectButton',
         props: {
@@ -249,6 +323,7 @@ export const CHANGE_PASSWORD: DynamicComponent[] = [
         props: {
             label: 'Contrasena',
             type: 'password',
+            name: 'password'
         }
     },
 
@@ -257,6 +332,7 @@ export const CHANGE_PASSWORD: DynamicComponent[] = [
         props: {
             label: 'Repetir contrasena',
             type: 'password',
+            name: 'password'
         }
     },
 
