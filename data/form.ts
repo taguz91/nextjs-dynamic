@@ -247,6 +247,16 @@ export const PIN_FORM: DynamicComponent[] = [
                         },
                     ]
                 },
+                {
+                    id: 'cardType',
+                    validationType: 'string',
+                    validations: [
+                        {
+                            type: 'required',
+                            params: ['Select and options, is required']
+                        },
+                    ]
+                },
             ],
             inputs: [
                 {
@@ -257,11 +267,17 @@ export const PIN_FORM: DynamicComponent[] = [
                         inputs: [
                             {
                                 uid: uid(),
-                                type: 'inputs/TextInput',
+                                type: 'inputs/IconTextInput',
                                 props: {
                                     label: 'Cedula',
                                     type: 'text',
-                                    name: 'cedula'
+                                    name: 'cedula',
+                                    placeholder: 'Cedula/ RUC / Pasaporte',
+                                    icon: {
+                                        icon: ['fab', 'twitter'],
+                                        color: 'rgb(14 165 233)',
+                                        filled: true,
+                                    }
                                 }
                             },
 
@@ -295,6 +311,33 @@ export const PIN_FORM: DynamicComponent[] = [
                         label: 'Card name',
                         type: 'text',
                         name: 'cardName'
+                    }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'inputs/SelectInput',
+                    props: {
+                        label: 'Card type',
+                        name: 'cardType',
+                        options: [
+                            {
+                                label: 'Chosse a card type',
+                                value: ''
+                            },
+                            {
+                                label: 'Visa',
+                                value: 'visa'
+                            },
+                            {
+                                label: 'Masterdcard',
+                                value: 'masterdcard'
+                            },
+                            {
+                                label: 'Diners',
+                                value: 'diners'
+                            }
+                        ]
                     }
                 },
 

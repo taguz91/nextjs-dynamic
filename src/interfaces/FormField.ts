@@ -2,7 +2,7 @@
 
 export interface FormField {
     name: string;
-    label: string;
+    label?: string;
     type: string;
     value: string;
     validators: FormValidations[];

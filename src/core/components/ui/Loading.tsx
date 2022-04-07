@@ -20,7 +20,8 @@ export const Loading: FC<Props> = () => {
             bottom: 0,
             left: 0,
             right: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.3)"
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: 100            
         }}>
 
             <p style={{

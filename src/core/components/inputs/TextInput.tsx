@@ -1,32 +1,16 @@
 import { FC } from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { ContainerInput } from './ContainerInput';
+import { TextField } from '../../../interfaces';
 
-interface Props {
-    label: string;
-    name: string;
-    type: InputType,
-    register: UseFormRegister<any>,
-    errors: FieldErrors<any>
-}
 
-type InputType =
-    | 'text'
-    | 'number'
-    | 'password';
-
-export const TextInput: FC<Props> = ({ errors, register, name, label, type }) => {
+export const TextInput: FC<TextField> = ({ errors, register, name, label, type, placeholder }) => {
     return (
-        <div className='my-2'>
-            <label
-                className='block'
-            >
-                <span className='font-medium '>
-                    {label}
-                </span>
+        <ContainerInput label={label} errors={errors} name={name}>
 
-                <input
-                    {...register(name)}
-                    className='mt-1
+            <input
+                {...register(name)}
+                placeholder={placeholder}
+                className='mt-1
                     block
                     w-full
                     rounded-md
@@ -37,12 +21,9 @@ export const TextInput: FC<Props> = ({ errors, register, name, label, type }) =>
                     focus:ring 
                     focus:ring-indigo-200 
                     focus:ring-opacity-50'
-                    type={type} />
+                type={type} />
 
-                {errors[name] && <span className='text-red-600'> {errors[name]?.message} </span>}
-
-            </label>
-        </div>
+        </ContainerInput>
     )
 }
 

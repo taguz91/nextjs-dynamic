@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { EmptyLayout } from '../../src/core/components/layouts'
 import { PAGE_DATA, PIN_FORM, RECOGNITION_FORM } from '../../data';
 import { getDynamicComponent } from '../../src/helpers';
+import { USER_REGISTER_FORM } from '../../data/userForm';
 
 const Auth: NextPage = () => {
     const router = useRouter();
@@ -17,6 +18,9 @@ const Auth: NextPage = () => {
 
                 case 'pin':
                     return PIN_FORM;
+
+                case 'register':
+                    return USER_REGISTER_FORM;
 
                 default:
                     return PAGE_DATA;
