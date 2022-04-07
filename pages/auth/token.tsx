@@ -37,10 +37,6 @@ export const TokenPage = () => {
                     name='token'
                     label={'Ingresar token'}
                     type={'text'}
-                    validators={{
-                        required: true,
-                        maxLength: 10
-                    }}
                 />
 
                 <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded" />

@@ -251,26 +251,30 @@ export const PIN_FORM: DynamicComponent[] = [
             inputs: [
                 {
                     uid: uid(),
-                    type: 'inputs/TextInput',
+                    type: 'containers/form/GridForm',
                     props: {
-                        label: 'Cedula',
-                        type: 'text',
-                        name: 'cedula',
-                        validators: {
-                            required: true,
-                            pattern: /^[a-z]+$/i,
-                            maxLength: 10
-                        }
-                    }
-                },
+                        nRows: 2,
+                        inputs: [
+                            {
+                                uid: uid(),
+                                type: 'inputs/TextInput',
+                                props: {
+                                    label: 'Cedula',
+                                    type: 'text',
+                                    name: 'cedula'
+                                }
+                            },
 
-                {
-                    uid: uid(),
-                    type: 'inputs/TextInput',
-                    props: {
-                        label: 'Pin de tarjeta de credito',
-                        type: 'text',
-                        name: 'pin'
+                            {
+                                uid: uid(),
+                                type: 'inputs/TextInput',
+                                props: {
+                                    label: 'Pin de tarjeta de credito',
+                                    type: 'text',
+                                    name: 'pin'
+                                }
+                            },
+                        ]
                     }
                 },
 
@@ -281,6 +285,16 @@ export const PIN_FORM: DynamicComponent[] = [
                         label: 'Tarjeta de debito',
                         type: 'text',
                         name: 'card'
+                    }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Card name',
+                        type: 'text',
+                        name: 'cardName'
                     }
                 },
 
