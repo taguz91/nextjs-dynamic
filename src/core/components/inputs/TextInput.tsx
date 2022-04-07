@@ -20,9 +20,6 @@ export const TextInput: FC<Props> = ({ errors, register, name, label, type, vali
         validators = {};
     }
 
-    // This is  a validation
-    // console.log('FORM->', name, register, errors);
-
     return (
         <div className='my-2'>
             <label
@@ -47,7 +44,7 @@ export const TextInput: FC<Props> = ({ errors, register, name, label, type, vali
                     focus:ring-opacity-50'
                     type={type} />
 
-                {errors[name] && <span> errors[name]?.message </span>}
+                {errors[name] && <span className='text-red-600'> {errors[name]?.message} </span>}
 
             </label>
         </div>

@@ -204,6 +204,50 @@ export const PIN_FORM: DynamicComponent[] = [
         uid: uid(),
         type: 'containers/FormContainer',
         props: {
+            validations: [
+                {
+                    id: 'cedula',
+                    validationType: 'string',
+                    validations: [
+                        {
+                            type: 'required',
+                            params: ['The cedula is required']
+                        },
+                        {
+                            type: 'uppercase',
+                            params: ['Auto upper']
+                        }
+                    ]
+                },
+                {
+                    id: 'pin',
+                    validationType: 'string',
+                    validations: [
+                        {
+                            type: 'min',
+                            params: [5, 'Current min: 5 characters']
+                        },
+                        {
+                            type: 'max',
+                            params: [10, 'Current max characters is 10']
+                        },
+                    ]
+                },
+                {
+                    id: 'card',
+                    validationType: 'string',
+                    validations: [
+                        {
+                            type: 'creditCardType',
+                            params: ['No es una tarjeta de credito valida']
+                        },
+                        {
+                            type: 'creditCardLength',
+                            params: ['Las tarjetas solo tienen 16 numeros']
+                        },
+                    ]
+                },
+            ],
             inputs: [
                 {
                     uid: uid(),
@@ -214,7 +258,7 @@ export const PIN_FORM: DynamicComponent[] = [
                         name: 'cedula',
                         validators: {
                             required: true,
-                            pattern: /^[A-Za-z]+$/i,
+                            pattern: /^[a-z]+$/i,
                             maxLength: 10
                         }
                     }
@@ -232,22 +276,22 @@ export const PIN_FORM: DynamicComponent[] = [
 
                 {
                     uid: uid(),
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Tarjeta de debito',
+                        type: 'text',
+                        name: 'card'
+                    }
+                },
+
+                {
+                    uid: uid(),
                     type: 'inputs/SubmitInput',
                     props: null
                 }
             ]
         }
     },
-
-    {
-        uid: uid(),
-        type: 'actions/RedirectButton',
-        props: {
-            label: 'Continuar',
-            href: '/auth/form/change-password',
-        }
-    },
-
 ];
 
 

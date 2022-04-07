@@ -1,16 +1,24 @@
 import { FC, useContext } from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
-import { DynamicComponent } from "../../../interfaces";
+import { DynamicComponent, YupConfig } from "../../../interfaces";
 import { LoadingContext } from '../../context/LoadingContext';
 import Loading from '../ui/Loading';
 import { renderDynamicComponent } from '../../../helpers';
+import { createYupDynamicSchema } from '../../../helpers/createYupDynamicSchema';
+
+import { yupResolver } from '@hookform/resolvers/yup';
 
 interface Props {
     inputs: DynamicComponent[];
+    validations: YupConfig[];
 }
 
-export const FormContainer: FC<Props> = ({ inputs }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+export const FormContainer: FC<Props> = ({ inputs, validations }) => {
+
+    const yupSchema = createYupDynamicSchema(validations);
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(yupSchema)
+    });
 
     const { toggle } = useContext(LoadingContext);
 

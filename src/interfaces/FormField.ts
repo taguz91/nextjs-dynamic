@@ -10,5 +10,11 @@ export interface FormField {
 
 export interface FormValidations {
     type: string;
-    params: string[] | number[];
+    params: any[];
+}
+
+export interface YupConfig {
+    id: string;
+    validationType: string;
+    validations: FormValidations[];
 }

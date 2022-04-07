@@ -39,7 +39,6 @@ export const TokenPage = () => {
                     type={'text'}
                     validators={{
                         required: true,
-                        pattern: /^[A-Za-z]+$/i,
                         maxLength: 10
                     }}
                 />
