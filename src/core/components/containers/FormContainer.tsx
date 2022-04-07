@@ -1,9 +1,9 @@
 import { FC, useContext } from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
-import { getDynamicComponent } from "../../../helpers";
 import { DynamicComponent } from "../../../interfaces";
 import { LoadingContext } from '../../context/LoadingContext';
 import Loading from '../ui/Loading';
+import { renderDynamicComponent } from '../../../helpers';
 
 interface Props {
     inputs: DynamicComponent[];
@@ -23,24 +23,21 @@ export const FormContainer: FC<Props> = ({ inputs }) => {
         }, 1000);
     }
 
-    console.log('Loaded pageeee!!!');
-
     return (
         <>
             <Loading />
             <form onSubmit={handleSubmit(onSubmit)} >
 
-
                 {inputs.map((component, index) => {
-                    const Dynamic = getDynamicComponent(component.type);
-                    return <Dynamic key={index} {...{
-                        ...component.props,
-                        register,
-                        errors
-                    }} />;
+                    return renderDynamicComponent(
+                        component,
+                        {
+                            register,
+                            errors,
+                            key: index
+                        }
+                    )
                 })}
-
-                <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded" />
             </form>
         </>
     );

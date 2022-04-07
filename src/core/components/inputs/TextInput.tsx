@@ -7,6 +7,7 @@ interface Props {
     type: InputType,
     register: UseFormRegister<any>,
     errors: FieldErrors<any>,
+    validators?: any,
 }
 
 type InputType =
@@ -14,8 +15,12 @@ type InputType =
     | 'number'
     | 'password';
 
-export const TextInput: FC<Props> = ({ errors, register, name, label, type }) => {
+export const TextInput: FC<Props> = ({ errors, register, name, label, type, validators }) => {
+    if (!validators) {
+        validators = {};
+    }
 
+    // This is  a validation
     // console.log('FORM->', name, register, errors);
 
     return (
@@ -28,7 +33,7 @@ export const TextInput: FC<Props> = ({ errors, register, name, label, type }) =>
                 </span>
 
                 <input
-                    {...register(name)}
+                    {...register(name, { ...validators })}
                     className='mt-1
                     block
                     w-full
@@ -41,6 +46,8 @@ export const TextInput: FC<Props> = ({ errors, register, name, label, type }) =>
                     focus:ring-indigo-200 
                     focus:ring-opacity-50'
                     type={type} />
+
+                {errors[name] && <span> errors[name]?.message </span>}
 
             </label>
         </div>

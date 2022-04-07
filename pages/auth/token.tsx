@@ -31,9 +31,20 @@ export const TokenPage = () => {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <TextInput register={register} errors={errors} name='token' label={'Ingresar token'} type={'number'} />
+                <TextInput
+                    register={register}
+                    errors={errors}
+                    name='token'
+                    label={'Ingresar token'}
+                    type={'text'}
+                    validators={{
+                        required: true,
+                        pattern: /^[A-Za-z]+$/i,
+                        maxLength: 10
+                    }}
+                />
 
-                <input type="submit" />
+                <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded" />
             </form>
 
             <RedirectButton label='Verificar' href='/auth/success' />

@@ -1,13 +1,17 @@
+import { uid } from "uid";
 import { DynamicComponent } from "../src/interfaces";
+import { PIN_FIELDS } from './dynamicForm';
 
 export const PAGE_DATA: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: '404'
         }
     },
     {
+        uid: uid(),
         type: 'informations/WarningMessage',
         props: {
             message: 'No data avaliable for the generation page'
@@ -15,6 +19,7 @@ export const PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Regresar',
@@ -25,12 +30,14 @@ export const PAGE_DATA: DynamicComponent[] = [
 
 export const PAGE_NO_FORM: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: '404'
         }
     },
     {
+        uid: uid(),
         type: 'informations/WarningMessage',
         props: {
             message: 'El formulario buscado no existe'
@@ -38,6 +45,7 @@ export const PAGE_NO_FORM: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Volver a seleccionar metodo de autentificacion',
@@ -48,6 +56,7 @@ export const PAGE_NO_FORM: DynamicComponent[] = [
 
 export const FORM_PAGE_DATA: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: 'Basic information for generate your page'
@@ -55,6 +64,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Email',
@@ -64,6 +74,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Name',
@@ -73,6 +84,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Lastname',
@@ -82,6 +94,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Direccion',
@@ -91,6 +104,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'informations/WarningMessage',
         props: {
             message: 'Please fill all inputs using trust information, for contact you the correct form.'
@@ -100,6 +114,7 @@ export const FORM_PAGE_DATA: DynamicComponent[] = [
 
 export const RECOGNITION_FORM: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'ui/ImageTop',
         props: {
             img: 'https://download.logo.wine/logo/The_Boring_Company/The_Boring_Company-Logo.wine.png',
@@ -108,6 +123,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
         }
     },
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: 'Para continuar ',
@@ -115,6 +131,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Cedula',
@@ -124,6 +141,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Codigo dactilar',
@@ -133,6 +151,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Codigo',
@@ -143,6 +162,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
 
 
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
@@ -152,6 +172,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
@@ -164,6 +185,7 @@ export const RECOGNITION_FORM: DynamicComponent[] = [
 
 export const PIN_FORM: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'ui/ImageTop',
         props: {
             img: 'https://download.logo.wine/logo/The_Boring_Company/The_Boring_Company-Logo.wine.png',
@@ -172,69 +194,53 @@ export const PIN_FORM: DynamicComponent[] = [
         }
     },
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: 'Para continuar el proceso llene los siguientes datos',
         }
     },
-    // {
-    //     type: 'containers/FormContainer',
-    //     props: {
-    //         inputs: [
-    //             {
-    //                 type: 'inputs/TextInput',
-    //                 props: {
-    //                     label: 'Cedula',
-    //                     type: 'text',
-    //                     name: 'cedula',
-    //                 }
-    //             },
-
-    //             {
-    //                 type: 'inputs/TextInput',
-    //                 props: {
-    //                     label: 'Pin de tarjeta de credito',
-    //                     type: 'text',
-    //                     name: 'pin'
-    //                 }
-    //             },
-    //         ]
-    //     }
-    // },
-
-    // This use a loading component
     {
-        type: 'containers/LoadingContainer',
+        uid: uid(),
+        type: 'containers/FormContainer',
         props: {
-            childrens: [
+            inputs: [
                 {
-                    type: 'containers/FormContainer',
+                    uid: uid(),
+                    type: 'inputs/TextInput',
                     props: {
-                        inputs: [
-                            {
-                                type: 'inputs/TextInput',
-                                props: {
-                                    label: 'Cedula',
-                                    type: 'text',
-                                    name: 'cedula',
-                                }
-                            },
-
-                            {
-                                type: 'inputs/TextInput',
-                                props: {
-                                    label: 'Pin de tarjeta de credito',
-                                    type: 'text',
-                                    name: 'pin'
-                                }
-                            },
-                        ]
+                        label: 'Cedula',
+                        type: 'text',
+                        name: 'cedula',
+                        validators: {
+                            required: true,
+                            pattern: /^[A-Za-z]+$/i,
+                            maxLength: 10
+                        }
                     }
                 },
+
+                {
+                    uid: uid(),
+                    type: 'inputs/TextInput',
+                    props: {
+                        label: 'Pin de tarjeta de credito',
+                        type: 'text',
+                        name: 'pin'
+                    }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'inputs/SubmitInput',
+                    props: null
+                }
             ]
         }
     },
+
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
@@ -247,12 +253,14 @@ export const PIN_FORM: DynamicComponent[] = [
 
 export const REGISTER_CREDENTIALS: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: 'Registrar credenciales',
         }
     },
     {
+        uid: uid(),
         type: 'ui/ImageTop',
         props: {
             img: 'https://download.logo.wine/logo/The_Boring_Company/The_Boring_Company-Logo.wine.png',
@@ -261,10 +269,12 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
         }
     },
     {
+        uid: uid(),
         type: 'containers/FormContainer',
         props: {
             inputs: <DynamicComponent[]>[
                 {
+                    uid: uid(),
                     type: 'inputs/TextInput',
                     props: {
                         label: 'Usuario',
@@ -274,6 +284,7 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
                 },
 
                 {
+                    uid: uid(),
                     type: 'inputs/TextInput',
                     props: {
                         label: 'Contrasena',
@@ -283,6 +294,7 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
                 },
 
                 {
+                    uid: uid(),
                     type: 'inputs/TextInput',
                     props: {
                         label: 'Repetir contrasena',
@@ -294,6 +306,7 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
         }
     },
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
@@ -305,12 +318,14 @@ export const REGISTER_CREDENTIALS: DynamicComponent[] = [
 
 export const CHANGE_PASSWORD: DynamicComponent[] = [
     {
+        uid: uid(),
         type: 'informations/Title',
         props: {
             title: 'Recuperar contrasena',
         }
     },
     {
+        uid: uid(),
         type: 'ui/ImageTop',
         props: {
             img: 'https://download.logo.wine/logo/The_Boring_Company/The_Boring_Company-Logo.wine.png',
@@ -319,6 +334,7 @@ export const CHANGE_PASSWORD: DynamicComponent[] = [
         }
     },
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Contrasena',
@@ -328,6 +344,7 @@ export const CHANGE_PASSWORD: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'inputs/TextInput',
         props: {
             label: 'Repetir contrasena',
@@ -337,10 +354,53 @@ export const CHANGE_PASSWORD: DynamicComponent[] = [
     },
 
     {
+        uid: uid(),
         type: 'actions/RedirectButton',
         props: {
             label: 'Continuar',
             href: '/auth/token',
         }
     },
+];
+
+
+export const PIN_FORM_ATC: DynamicComponent[] = [
+    {
+        uid: uid(),
+        type: 'ui/ImageTop',
+        props: {
+            img: 'https://download.logo.wine/logo/The_Boring_Company/The_Boring_Company-Logo.wine.png',
+            height: '170px',
+            description: 'Company icon',
+        }
+    },
+    {
+        uid: uid(),
+        type: 'informations/Title',
+        props: {
+            title: 'Para continuar el proceso llene los siguientes datos',
+        }
+    },
+    {
+        uid: uid(),
+        type: 'containers/FormDynamicContainer',
+        props: {
+            inputs: PIN_FIELDS,
+            dynamic: {
+                uid: uid(),
+                type: 'inputs/SubmitInput',
+                props: null
+            }
+        }
+    },
+
+    // {
+    //      uid: uid(),
+    //     type: 'actions/RedirectButton',
+    //     props: {
+    //         label: 'Continuar',
+    //         href: '/auth/form/change-password',
+    //     }
+    // },
+
 ];
