@@ -10,7 +10,8 @@ type InputType =
 export interface BaseField {
     label?: string;
     name: string;
-    errors: FieldErrors<any>
+    errors: FieldErrors<any>;
+    showErrors?: boolean;
 }
 
 export interface HookField extends BaseField {

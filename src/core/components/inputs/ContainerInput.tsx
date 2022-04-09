@@ -3,7 +3,7 @@ import { BaseField } from "../../../interfaces";
 import ErrorInput from './ErrorInput';
 
 
-export const ContainerInput: FC<BaseField> = ({ children, label, errors, name }) => {
+export const ContainerInput: FC<BaseField> = ({ showErrors = true, children, label, errors, name }) => {
     return (
         <div className='my-2'>
             {label && (
@@ -13,7 +13,8 @@ export const ContainerInput: FC<BaseField> = ({ children, label, errors, name })
             )}
 
             {children}
-            <ErrorInput errors={errors} name={name} />
+
+            {showErrors && (<ErrorInput errors={errors} name={name} />)}
         </div>
     );
 }

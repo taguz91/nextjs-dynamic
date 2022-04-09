@@ -5,11 +5,14 @@ import { uid } from 'uid';
 export const USER_REGISTER_FORM: DynamicComponent[] = [
     {
         uid: uid(),
-        type: 'informations/Title',
+        type: 'informations/Text',
         props: {
-            title: 'Ingrese la siguiente informacion necesaria',
+            text: 'Para poder enviarte tu nombre de usuario por favor confirma la siguiente información:',
+            color: 'text-emerald-500',
+            weight: 'font-extrabold',
         }
     },
+
     {
         uid: uid(),
         type: 'containers/FormContainer',
@@ -49,7 +52,7 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
                     validations: [
                         {
                             type: 'required',
-                            params: ['The cedula is required']
+                            params: ['The fecha nacimiento is required']
                         },
                     ]
                 },
@@ -65,6 +68,18 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
                 },
             ],
             inputs: [
+
+                {
+                    uid: uid(),
+                    type: 'containers/form/ErrorAlert',
+                    props: {
+                        attributes: [
+                            'cedula',
+                            'fechaNacimiento',
+                            'cuenta'
+                        ]
+                    }
+                },
 
                 {
                     uid: uid(),
@@ -95,6 +110,7 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
                     props: {
                         type: 'text',
                         name: 'cedula',
+                        showErrors: false,
                         placeholder: 'Cedula/ RUC / Pasaporte',
                         icon: {
                             icon: ['fa', 'user'],
@@ -110,7 +126,8 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
                     props: {
                         type: 'date',
                         name: 'fechaNacimiento',
-                        placeholder: 'Fecha de nacimiento Ej: 1990-01-15',
+                        showErrors: false,
+                        placeholder: 'Fecha de nacimiento Ej: 1990-11-24',
                         icon: {
                             icon: ['fa', 'calendar-days'],
                             color: 'black',

@@ -4,6 +4,7 @@ import ContainerInput from "./ContainerInput";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const IconTextInput: FC<IconTextField> = ({
+    showErrors,
     errors,
     register,
     name,
@@ -13,7 +14,7 @@ export const IconTextInput: FC<IconTextField> = ({
     placeholder
 }) => {
     return (
-        <ContainerInput label={label} errors={errors} name={name}>
+        <ContainerInput showErrors={showErrors} label={label} errors={errors} name={name}>
 
             <div className="mt-1 
             relative 

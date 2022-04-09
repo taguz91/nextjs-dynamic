@@ -3,9 +3,9 @@ import { ContainerInput } from './ContainerInput';
 import { TextField } from '../../../interfaces';
 
 
-export const TextInput: FC<TextField> = ({ errors, register, name, label, type, placeholder }) => {
+export const TextInput: FC<TextField> = ({ showErrors, errors, register, name, label, type, placeholder }) => {
     return (
-        <ContainerInput label={label} errors={errors} name={name}>
+        <ContainerInput showErrors={showErrors} label={label} errors={errors} name={name}>
 
             <input
                 {...register(name)}
