@@ -5,8 +5,7 @@ import { LoadingContext } from '../../context/LoadingContext';
 import { FormField } from '../../../interfaces/FormField';
 import { renderFormFields } from '../../../helpers/renderFormFields';
 import { DynamicComponent } from '../../../interfaces/DynamicComponent';
-import { getDynamicComponent, renderDynamicComponent } from '../../../helpers/dynamicGeneration';
-import SubmitInput from '../inputs/SubmitInput';
+import { renderDynamicComponent } from '../../../helpers/dynamicGeneration';
 
 interface Props {
     inputs: FormField[];
@@ -34,8 +33,6 @@ export const FormDynamicContainer: FC<Props> = ({ inputs, dynamic }) => {
                 {renderFormFields(register, errors, inputs)}
 
                 {renderDynamicComponent(dynamic)}
-
-                {/* <SubmitInput /> */}
             </form>
         </>
     );

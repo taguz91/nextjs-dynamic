@@ -1,4 +1,6 @@
 @import 'tailwindcss/base';
-@import 'tailwindcss/components';
+/* Load custom styles globaly */
 @import './base.css';
+
+@import 'tailwindcss/components';
 @import 'tailwindcss/utilities';

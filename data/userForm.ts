@@ -15,7 +15,7 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
 
     {
         uid: uid(),
-        type: 'containers/FormContainer',
+        type: 'containers/form/FormEnrolamiento',
         props: {
             validations: [
                 {
@@ -161,8 +161,117 @@ export const USER_REGISTER_FORM: DynamicComponent[] = [
                             color: 'white'
                         }
                     }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'actions/BackIcon',
+                    props: {
+                        label: 'Atras'
+                    }
                 }
             ]
+        }
+    },
+];
+
+
+
+export const USER_SELECT_AUTH: DynamicComponent[] = [
+    {
+        uid: uid(),
+        type: 'informations/Text',
+        props: {
+            text: 'Seleccione el tipo de autentificacion que quiere utilizar:',
+            color: 'text-blue-500',
+            weight: 'font-medium',
+        }
+    },
+
+    {
+        uid: uid(),
+        type: 'containers/form/FormEnrolamiento',
+        props: {
+            validations: [
+                {
+                    id: 'type',
+                    validationType: 'string',
+                    validations: [
+                        {
+                            type: 'required',
+                            params: ['Seleccione un tipo de auth']
+                        },
+                        {
+                            type: 'oneOf',
+                            params: [
+                                [
+                                    'pin',
+                                    'faceRecognition',
+                                ],
+                                'Seleccione un tipo de auth'
+                            ]
+                        },
+                        {
+                            type: 'nullable',
+                            params: []
+                        },
+                    ]
+                },
+
+            ],
+            inputs: [
+
+                {
+                    uid: uid(),
+                    type: 'inputs/enrolamiento/TypeAuth',
+                    props: {
+                        // label: 'Tipo de identificacion',
+                        name: 'type',
+                        options: [
+                            {
+                                label: 'Pin tarjeta',
+                                value: 'pin',
+                                icon: ['fa', 'credit-card'],
+                            },
+                            {
+                                label: 'Reconocimiento facial',
+                                value: 'faceRecognition',
+                                icon: ['fa', 'face-grin-beam'],
+                            }
+                        ]
+                    }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'actions/FullButton',
+                    props: {
+                        label: 'Continuar',
+                        icon: {
+                            icon: ['fa', 'right-long'],
+                            color: 'white'
+                        }
+                    }
+                },
+
+                {
+                    uid: uid(),
+                    type: 'actions/BackIcon',
+                    props: {
+                        label: 'Atras'
+                    }
+                }
+            ]
+        }
+    },
+
+    {
+        uid: uid(),
+        type: 'informations/Text',
+        props: {
+            text: 'En el caso de tener inconvenientes por favor acercarse a su agencia más cercana.',
+            color: 'text-gray-400',
+            weight: 'font-light',
         }
     },
 ];
