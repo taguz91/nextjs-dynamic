@@ -185,6 +185,7 @@ export const USER_SELECT_AUTH: DynamicComponent[] = [
             text: 'Seleccione el tipo de autentificacion que quiere utilizar:',
             color: 'text-blue-500',
             weight: 'font-medium',
+            alinght: 'text-center'
         }
     },
 
